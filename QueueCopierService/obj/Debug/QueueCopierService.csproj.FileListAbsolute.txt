@@ -1,0 +1,13 @@
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\obj\Debug\QueueCopierService.csprojAssemblyReference.cache
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\obj\Debug\QueueCopierService.ProjectInstaller.resources
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\obj\Debug\QueueCopierService.csproj.GenerateResource.cache
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\obj\Debug\QueueCopierService.csproj.CoreCompileInputs.cache
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\bin\Debug\QueueCopierService.exe.config
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\bin\Debug\QueueCopierService.exe
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\bin\Debug\QueueCopierService.pdb
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\bin\Debug\PegBank.dll
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\bin\Debug\PegBank.pdb
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\bin\Debug\PegBank.dll.config
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\obj\Debug\QueueCopierService.csproj.CopyComplete
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\obj\Debug\QueueCopierService.exe
+C:\Users\Dallington The Venom\source\repos\PegBank\QueueCopierService\obj\Debug\QueueCopierService.pdb

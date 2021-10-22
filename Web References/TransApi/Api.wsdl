@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="deposit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acc_no" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amt" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="depositResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="depositResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="withdraw">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acc_no" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amt" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="withdrawResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="withdrawResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agentData" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registerResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getListofAccounts">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getListofAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getListofAccountsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomersList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCustomersListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomersListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLedger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="which_ledger" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLedgerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLedgerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerDataResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerAccountBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account_number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerAccountBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getCustomerAccountBalanceResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListofLogs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListofLogsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListofLogsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecordCreditRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accno" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="credit" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecordCreditRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordCreditRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingCreditRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPendingCreditRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingCreditRequestsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovedCreditRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetApprovedCreditRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApprovedCreditRequestsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegisteredAgents">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRegisteredAgentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegisteredAgentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreditAgentAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acc_no" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amt" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="creditedBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreditAgentAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreditAgentAccountResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isCreditRequestValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acc_no" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amt" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isCreditRequestValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isCreditRequestValidResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentAccountDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acc_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentAccountDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgentAccountDetailsResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentsWithRunningOutFloat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="minimumCredit" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAgentsWithRunningOutFloatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgentsWithRunningOutFloatResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsValidAgentAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account_number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsValidAgentAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsValidAgentAccountResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SystemOverview">
+        <s:complexType />
+      </s:element>
+      <s:element name="SystemOverviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SystemOverviewResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paras" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AuthenticateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateUserResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDetailsResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterAgent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telephoneNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountBalance" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterAgentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterAgentResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="depositSoapIn">
+    <wsdl:part name="parameters" element="tns:deposit" />
+  </wsdl:message>
+  <wsdl:message name="depositSoapOut">
+    <wsdl:part name="parameters" element="tns:depositResponse" />
+  </wsdl:message>
+  <wsdl:message name="withdrawSoapIn">
+    <wsdl:part name="parameters" element="tns:withdraw" />
+  </wsdl:message>
+  <wsdl:message name="withdrawSoapOut">
+    <wsdl:part name="parameters" element="tns:withdrawResponse" />
+  </wsdl:message>
+  <wsdl:message name="registerSoapIn">
+    <wsdl:part name="parameters" element="tns:register" />
+  </wsdl:message>
+  <wsdl:message name="registerSoapOut">
+    <wsdl:part name="parameters" element="tns:registerResponse" />
+  </wsdl:message>
+  <wsdl:message name="getListofAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:getListofAccounts" />
+  </wsdl:message>
+  <wsdl:message name="getListofAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:getListofAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomersListSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomersList" />
+  </wsdl:message>
+  <wsdl:message name="getCustomersListSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomersListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLedgerSoapIn">
+    <wsdl:part name="parameters" element="tns:getLedger" />
+  </wsdl:message>
+  <wsdl:message name="getLedgerSoapOut">
+    <wsdl:part name="parameters" element="tns:getLedgerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerData" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerAccountBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomerAccountBalance" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerAccountBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerAccountBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListofLogsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListofLogs" />
+  </wsdl:message>
+  <wsdl:message name="ListofLogsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListofLogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecordCreditRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:RecordCreditRequest" />
+  </wsdl:message>
+  <wsdl:message name="RecordCreditRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:RecordCreditRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingCreditRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingCreditRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingCreditRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingCreditRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovedCreditRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApprovedCreditRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovedCreditRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApprovedCreditRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegisteredAgentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegisteredAgents" />
+  </wsdl:message>
+  <wsdl:message name="GetRegisteredAgentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegisteredAgentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreditAgentAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreditAgentAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreditAgentAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreditAgentAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="isCreditRequestValidSoapIn">
+    <wsdl:part name="parameters" element="tns:isCreditRequestValid" />
+  </wsdl:message>
+  <wsdl:message name="isCreditRequestValidSoapOut">
+    <wsdl:part name="parameters" element="tns:isCreditRequestValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentAccountDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentAccountDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentAccountDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentAccountDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentsWithRunningOutFloatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgentsWithRunningOutFloat" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentsWithRunningOutFloatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgentsWithRunningOutFloatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsValidAgentAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:IsValidAgentAccount" />
+  </wsdl:message>
+  <wsdl:message name="IsValidAgentAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:IsValidAgentAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SystemOverviewSoapIn">
+    <wsdl:part name="parameters" element="tns:SystemOverview" />
+  </wsdl:message>
+  <wsdl:message name="SystemOverviewSoapOut">
+    <wsdl:part name="parameters" element="tns:SystemOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="SendMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterAgentSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterAgent" />
+  </wsdl:message>
+  <wsdl:message name="RegisterAgentSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterAgentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ApiSoap">
+    <wsdl:operation name="deposit">
+      <wsdl:input message="tns:depositSoapIn" />
+      <wsdl:output message="tns:depositSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="withdraw">
+      <wsdl:input message="tns:withdrawSoapIn" />
+      <wsdl:output message="tns:withdrawSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <wsdl:input message="tns:registerSoapIn" />
+      <wsdl:output message="tns:registerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getListofAccounts">
+      <wsdl:input message="tns:getListofAccountsSoapIn" />
+      <wsdl:output message="tns:getListofAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomersList">
+      <wsdl:input message="tns:getCustomersListSoapIn" />
+      <wsdl:output message="tns:getCustomersListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLedger">
+      <wsdl:input message="tns:getLedgerSoapIn" />
+      <wsdl:output message="tns:getLedgerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerData">
+      <wsdl:input message="tns:GetCustomerDataSoapIn" />
+      <wsdl:output message="tns:GetCustomerDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAccountBalance">
+      <wsdl:input message="tns:getCustomerAccountBalanceSoapIn" />
+      <wsdl:output message="tns:getCustomerAccountBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListofLogs">
+      <wsdl:input message="tns:ListofLogsSoapIn" />
+      <wsdl:output message="tns:ListofLogsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecordCreditRequest">
+      <wsdl:input message="tns:RecordCreditRequestSoapIn" />
+      <wsdl:output message="tns:RecordCreditRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingCreditRequests">
+      <wsdl:input message="tns:GetPendingCreditRequestsSoapIn" />
+      <wsdl:output message="tns:GetPendingCreditRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovedCreditRequests">
+      <wsdl:input message="tns:GetApprovedCreditRequestsSoapIn" />
+      <wsdl:output message="tns:GetApprovedCreditRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegisteredAgents">
+      <wsdl:input message="tns:GetRegisteredAgentsSoapIn" />
+      <wsdl:output message="tns:GetRegisteredAgentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreditAgentAccount">
+      <wsdl:input message="tns:CreditAgentAccountSoapIn" />
+      <wsdl:output message="tns:CreditAgentAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isCreditRequestValid">
+      <wsdl:input message="tns:isCreditRequestValidSoapIn" />
+      <wsdl:output message="tns:isCreditRequestValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentAccountDetails">
+      <wsdl:input message="tns:GetAgentAccountDetailsSoapIn" />
+      <wsdl:output message="tns:GetAgentAccountDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentsWithRunningOutFloat">
+      <wsdl:input message="tns:GetAgentsWithRunningOutFloatSoapIn" />
+      <wsdl:output message="tns:GetAgentsWithRunningOutFloatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidAgentAccount">
+      <wsdl:input message="tns:IsValidAgentAccountSoapIn" />
+      <wsdl:output message="tns:IsValidAgentAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SystemOverview">
+      <wsdl:input message="tns:SystemOverviewSoapIn" />
+      <wsdl:output message="tns:SystemOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <wsdl:input message="tns:SendMailSoapIn" />
+      <wsdl:output message="tns:SendMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input message="tns:AuthenticateUserSoapIn" />
+      <wsdl:output message="tns:AuthenticateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input message="tns:GetUserDetailsSoapIn" />
+      <wsdl:output message="tns:GetUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAgent">
+      <wsdl:input message="tns:RegisterAgentSoapIn" />
+      <wsdl:output message="tns:RegisterAgentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ApiSoap" type="tns:ApiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="deposit">
+      <soap:operation soapAction="http://tempuri.org/deposit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="withdraw">
+      <soap:operation soapAction="http://tempuri.org/withdraw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap:operation soapAction="http://tempuri.org/register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListofAccounts">
+      <soap:operation soapAction="http://tempuri.org/getListofAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomersList">
+      <soap:operation soapAction="http://tempuri.org/getCustomersList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLedger">
+      <soap:operation soapAction="http://tempuri.org/getLedger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerData">
+      <soap:operation soapAction="http://tempuri.org/GetCustomerData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAccountBalance">
+      <soap:operation soapAction="http://tempuri.org/getCustomerAccountBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListofLogs">
+      <soap:operation soapAction="http://tempuri.org/ListofLogs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordCreditRequest">
+      <soap:operation soapAction="http://tempuri.org/RecordCreditRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingCreditRequests">
+      <soap:operation soapAction="http://tempuri.org/GetPendingCreditRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovedCreditRequests">
+      <soap:operation soapAction="http://tempuri.org/GetApprovedCreditRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegisteredAgents">
+      <soap:operation soapAction="http://tempuri.org/GetRegisteredAgents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditAgentAccount">
+      <soap:operation soapAction="http://tempuri.org/CreditAgentAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isCreditRequestValid">
+      <soap:operation soapAction="http://tempuri.org/isCreditRequestValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentAccountDetails">
+      <soap:operation soapAction="http://tempuri.org/GetAgentAccountDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentsWithRunningOutFloat">
+      <soap:operation soapAction="http://tempuri.org/GetAgentsWithRunningOutFloat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidAgentAccount">
+      <soap:operation soapAction="http://tempuri.org/IsValidAgentAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemOverview">
+      <soap:operation soapAction="http://tempuri.org/SystemOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://tempuri.org/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAgent">
+      <soap:operation soapAction="http://tempuri.org/RegisterAgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ApiSoap12" type="tns:ApiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="deposit">
+      <soap12:operation soapAction="http://tempuri.org/deposit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="withdraw">
+      <soap12:operation soapAction="http://tempuri.org/withdraw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap12:operation soapAction="http://tempuri.org/register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListofAccounts">
+      <soap12:operation soapAction="http://tempuri.org/getListofAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomersList">
+      <soap12:operation soapAction="http://tempuri.org/getCustomersList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLedger">
+      <soap12:operation soapAction="http://tempuri.org/getLedger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerData">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomerData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAccountBalance">
+      <soap12:operation soapAction="http://tempuri.org/getCustomerAccountBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListofLogs">
+      <soap12:operation soapAction="http://tempuri.org/ListofLogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordCreditRequest">
+      <soap12:operation soapAction="http://tempuri.org/RecordCreditRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingCreditRequests">
+      <soap12:operation soapAction="http://tempuri.org/GetPendingCreditRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovedCreditRequests">
+      <soap12:operation soapAction="http://tempuri.org/GetApprovedCreditRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegisteredAgents">
+      <soap12:operation soapAction="http://tempuri.org/GetRegisteredAgents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditAgentAccount">
+      <soap12:operation soapAction="http://tempuri.org/CreditAgentAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isCreditRequestValid">
+      <soap12:operation soapAction="http://tempuri.org/isCreditRequestValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentAccountDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentAccountDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentsWithRunningOutFloat">
+      <soap12:operation soapAction="http://tempuri.org/GetAgentsWithRunningOutFloat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidAgentAccount">
+      <soap12:operation soapAction="http://tempuri.org/IsValidAgentAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemOverview">
+      <soap12:operation soapAction="http://tempuri.org/SystemOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap12:operation soapAction="http://tempuri.org/SendMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap12:operation soapAction="http://tempuri.org/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAgent">
+      <soap12:operation soapAction="http://tempuri.org/RegisterAgent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Api">
+    <wsdl:port name="ApiSoap" binding="tns:ApiSoap">
+      <soap:address location="https://localhost:44379/Api.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ApiSoap12" binding="tns:ApiSoap12">
+      <soap12:address location="https://localhost:44379/Api.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
